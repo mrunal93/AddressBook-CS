@@ -1,16 +1,15 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AddressBook
 {
-    class AddressBookMain
-    {
+    public class AddressBookMain
+    { 
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To address Book");
             Person person = new Person();
-            person.getSetFirstName = "Mrunal";
-            Console.WriteLine(person.getSetFirstName);
-        
+            person.addPerson();
         }
     }
 }
