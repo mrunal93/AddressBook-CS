@@ -7,46 +7,71 @@ using System.Text;
 
 namespace AddressBook
 {
+
+   // interface IPerson
+    //{
+      //  void addPerson();
+    //}
+
     public class Person
     {
-        private String firstName, lastName, address, city, state, phoneNumber;
-        private int zip;
+        private string firstName, lastName, address, city, state, phoneNumber, zip;
+
+        public void addPerson()
+        {
+            Person person = new Person();
+            Console.WriteLine("Enter the first name");
+            person.getSetFirstName = Console.ReadLine();
+            //Console.WriteLine(person.getSetFirstName);
+            Console.WriteLine("Enter the Laste Name");
+            person.getSetLastName = Console.ReadLine();
+            Console.WriteLine("Enter The Address:");
+            person.getsetaddress = Console.ReadLine();
+            Console.WriteLine("Enter the city name");
+            person.getSetCity = Console.ReadLine();
+            Console.WriteLine("Enter the State");
+            person.getSetState = Console.ReadLine();
+            Console.WriteLine("Enter the Phone Number");
+            person.getSetPhoneNo = Console.ReadLine();
+            Console.WriteLine("Enter the zip Code for the area");
+            person.getSetZip = Console.ReadLine();
+            
+        }
 
 
-      
 
-        public String getSetFirstName
+        public string getSetFirstName
         {
             get { return firstName; }
             set { firstName = value; }
         }
-        public String getSetLastName
+        public string getSetLastName
         {
             get { return lastName; }
             set { lastName = value; }
         }
-        public String getsetaddress
+        public string getsetaddress
         {
             get { return address; }
             set { address = value; }
         }
-        public String getSetCity
+        public string getSetCity
         {
             get { return city; }
             set { city = value; }
         }
-        public String getSetState
+        public string getSetState
         {
             get { return state; }
             set { state = value; }
 
         }
-        public String getSetPhoneNo
+        public string getSetPhoneNo
         {
             get { return phoneNumber; }
             set { phoneNumber = value; }
         }
-        public int getSetZip
+        public string getSetZip
         {
             get { return zip; }
             set { zip = value; }
