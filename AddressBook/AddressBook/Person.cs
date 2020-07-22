@@ -9,10 +9,7 @@ using System.Text;
 namespace AddressBook
 {
 
-    // interface IPerson
-    //{
-    //  void AddPerson();
-    //}
+    
 
     public class Person
     {
