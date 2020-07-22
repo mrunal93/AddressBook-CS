@@ -60,30 +60,35 @@ namespace AddressBook
                 {
                     personEdit = person;
                 }
-                    Console.WriteLine("Enter the address");
-                    String address = Console.ReadLine();
-                    personEdit.SetAddress(address);
-                    Console.WriteLine("Enter the city");
-                    String city = Console.ReadLine();
-                    personEdit.SetCity(city);
-                    Console.WriteLine("Enter the state");
-                    String state = Console.ReadLine();
-                    personEdit.SetState(state);
-                    Console.WriteLine("Enter the zip");
-                    String zip = Console.ReadLine();
-                    personEdit.SetZip(zip);
-                    Console.WriteLine("Enter the phone number");
-                    String phoneNumber = Console.ReadLine();
-                    personEdit.SetPhoneNumber(phoneNumber);
-                    
+                Console.WriteLine("Enter the address");
+                String address = Console.ReadLine();
+                personEdit.SetAddress(address);
+                Console.WriteLine("Enter the city");
+                String city = Console.ReadLine();
+                personEdit.SetCity(city);
+                Console.WriteLine("Enter the state");
+                String state = Console.ReadLine();
+                personEdit.SetState(state);
+                Console.WriteLine("Enter the zip");
+                String zip = Console.ReadLine();
+                personEdit.SetZip(zip);
+                Console.WriteLine("Enter the phone number");
+                String phoneNumber = Console.ReadLine();
+                personEdit.SetPhoneNumber(phoneNumber);
+
+                Person personDupli = new Person(name, address, city, state, zip, phoneNumber);
+                Person dupilicate = DetectPerson(name);
+                if (personDupli.Equals(dupilicate))
+                {
+                    Console.WriteLine("Person already in the List");
+                }
+                personDetails.Add(personDupli);
             }
 
         }
 
-        public Person DetectPerson()
+        public Person DetectPerson(string name)
         {
-            Console.WriteLine("entername of person ");
-            String name = Console.ReadLine();
             foreach (Person person in personDetails)
             {
                 if (person.GetName().Equals(name))
@@ -96,7 +101,9 @@ namespace AddressBook
 
         public void DeletPerson()
         {
-            Person personDelet = DetectPerson();
+            Console.WriteLine("Enter the Person Name:");
+            string name = Console.ReadLine();
+            Person personDelet = DetectPerson(name);
             personDetails.Remove(personDelet);
         }
         
