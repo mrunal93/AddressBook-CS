@@ -3,18 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO.Compression;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace AddressBook
 {
 
-    
 
-    public class Person
+
+    public class Person 
     {
         string name, address, city, state, phoneNumber, zip;
-        ArrayList personDetails = new ArrayList() ;        
+        ArrayList personDetails = new ArrayList() ;
+        Dictionary<string,Person> personCity = new Dictionary<string, Person>();
+        Dictionary<string, Person> personState = new Dictionary<string, Person>();
+        Dictionary<string, Person> personZip = new Dictionary<string, Person>();
+
+
         public Person(string name,string address, string city, string state, string zip, string phoneNumber)
         {
             this.name = name;
@@ -45,6 +53,9 @@ namespace AddressBook
             String phoneNumber = Console.ReadLine();
             Person personAdd = new Person(name,address, city, state, zip, phoneNumber);
             personDetails.Add(personAdd);
+            personCity.Add(city, personAdd);
+            personState.Add(state, personAdd);
+            personZip.Add(zip, personAdd);
         }
 
       
@@ -119,12 +130,34 @@ namespace AddressBook
                 Console.WriteLine(person.Getzip());
                 Console.WriteLine(person.GetAddress());
             }
-            //for (int index=0; index < personDetails.Count; index++)
-            //{
-            //    Person person = (Person)personDetails[index];
-            //}
         }
 
+        public void ShortCity()
+        {
+            foreach(KeyValuePair<string,Person> sortCity in personCity.OrderBy(keyCity => keyCity.Key))
+            {
+             
+                Console.WriteLine("City name: {0}, Details: {1}", sortCity.Key, sortCity.Value);
+             
+            }
+           
+        }
+        public void ShortState()
+        {
+            foreach (KeyValuePair<string, Person> sortState in personState.OrderBy(keyState => keyState.Key))
+            {
+               
+               Console.WriteLine("State name: {0}, Details: {1}", sortState.Value, sortState.Value);
+               
+            }
+        }
+        public void ShortZip()
+        {
+            foreach (KeyValuePair<string, Person> sortZip in personZip.OrderBy(keyZip => keyZip.Key))
+            {
+                Console.WriteLine("ZIP: {0}, Details: {1}", sortZip.Key, sortZip.Value.ToString());
+            }
+        }
         public void ShortPersion()
         {
             personDetails.Sort();
