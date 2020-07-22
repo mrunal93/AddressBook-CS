@@ -39,7 +39,7 @@ namespace AddressBook
                         break;
                 }
            } while(checkOut == 0) ;
-            //person1.DisplayAddressBook();
+            person1.DisplayAddressBook();
 
         }
     }
