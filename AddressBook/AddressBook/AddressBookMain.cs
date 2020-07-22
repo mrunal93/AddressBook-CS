@@ -17,7 +17,7 @@ namespace AddressBook
                 Console.WriteLine("Enter Your choice 1: Add Person Details ");
                 Console.WriteLine("Enter Your choice 2: Editing Person Details ");
                 Console.WriteLine("Enter Your choice 3: Delete  Person Details ");
-                Console.WriteLine("Enter Your choice 4: To exist ");
+                Console.WriteLine("Enter Your choice 4: To exist");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
