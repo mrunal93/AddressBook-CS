@@ -137,8 +137,9 @@ namespace AddressBook
             foreach(KeyValuePair<string,Person> sortCity in personCity.OrderBy(keyCity => keyCity.Key))
             {
              
-                Console.WriteLine("City name: {0}, Details: {1}", sortCity.Key, sortCity.Value);
+                Console.WriteLine("City name: {0}, Details: {1} ::: {2} ::: {3} ::: {4}", sortCity.Key, sortCity.Value.GetName(),sortCity.Value.GetState(),sortCity.Value.Getzip(),sortCity.Value.GetPhoneNumber());
              
+                
             }
            
         }
@@ -147,7 +148,7 @@ namespace AddressBook
             foreach (KeyValuePair<string, Person> sortState in personState.OrderBy(keyState => keyState.Key))
             {
                
-               Console.WriteLine("State name: {0}, Details: {1}", sortState.Value, sortState.Value);
+               Console.WriteLine("State name: {0}, Details: {1} ::: {2} ::: {3} ::: {4}", sortState.Key, sortState.Value.GetName(),sortState.Value.GetCity(),sortState.Value.Getzip(),sortState.Value.GetPhoneNumber());
                
             }
         }
@@ -155,7 +156,7 @@ namespace AddressBook
         {
             foreach (KeyValuePair<string, Person> sortZip in personZip.OrderBy(keyZip => keyZip.Key))
             {
-                Console.WriteLine("ZIP: {0}, Details: {1}", sortZip.Key, sortZip.Value.ToString());
+                Console.WriteLine("ZIP: {0}, Details: {1} ::: {2} ::: {3} ::: {4}", sortZip.Key, sortZip.Value.GetName(),sortZip.Value.GetCity(),sortZip.Value.GetState(),sortZip.Value.GetPhoneNumber());
             }
         }
         public void ShortPersion()
@@ -166,6 +167,33 @@ namespace AddressBook
                 Console.WriteLine(sort.GetName());
             }
         }
+
+        public void ViewCity()
+        {
+            Console.WriteLine("Enter the city name");
+            string city = Console.ReadLine();
+            foreach (KeyValuePair<string,Person> cityView in personCity)
+            {
+                if (cityView.Key == city)
+                {
+                    Console.WriteLine("City: {0} Person name: {1}", cityView.Key, cityView.Value.GetName());
+                }
+            }
+        }
+
+        public void ViewState()
+        {
+            Console.WriteLine("Enter the State name");
+            string city = Console.ReadLine();
+            foreach (KeyValuePair<string, Person> stateView in personCity)
+            {
+                if (stateView.Key == city)
+                {
+                    Console.WriteLine("City: {0} Person name: {1}", stateView.Key, stateView.Value.GetName());
+                }
+            }
+        }
+
 
         public string GetName()
         {

@@ -16,14 +16,16 @@ namespace AddressBook
             Person personTo = new Person();
             do
             {
-                Console.WriteLine("Enter Your choice 1: Add Person Details ");
-                Console.WriteLine("Enter Your choice 2: Editing Person Details ");
-                Console.WriteLine("Enter Your choice 3: Delete  Person Details ");
-                Console.WriteLine("Enter Your choice 4: Short Person By name");
-                Console.WriteLine("Enter Your choice 5: Short Person By State");
-                Console.WriteLine("Enter Your choice 6: Short Persion By City");
-                Console.WriteLine("Enter Your choice 7: Short Persion By Zip");
-                Console.WriteLine("Enter Your choice 8: Exit From here");
+                Console.WriteLine("choice 1: Add Person Details ");
+                Console.WriteLine("choice 2: Editing Person Details ");
+                Console.WriteLine("choice 3: Delete  Person Details ");
+                Console.WriteLine("choice 4: Short Person By name");
+                Console.WriteLine("choice 5: Short Person By State");
+                Console.WriteLine("choice 6: Short Persion By City");
+                Console.WriteLine("choice 7: Short Persion By Zip");
+                Console.WriteLine("choice 8: View person by city");
+                Console.WriteLine("choice 9: view Person by state");
+                Console.WriteLine("choice 10: Exit From here");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -52,6 +54,12 @@ namespace AddressBook
                         break;
                     case 7:
                         personTo.ShortZip();
+                        break;
+                    case 8:
+                        personTo.ViewCity();
+                        break;
+                    case 9:
+                        personTo.ViewState();
                         break;
                     default:
                         checkOut = 1;
