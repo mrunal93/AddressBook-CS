@@ -48,13 +48,13 @@ namespace AddressBook
             String phoneNumber = Console.ReadLine();
             Person personAdd = new Person(name,address, city, state, zip, phoneNumber);
             personDetails.Add(personAdd);
-        }
+            }
 
       
         
         public void EditPerson()
         {
-            Person personEdit = new Person("","","","","","");
+            Person personEdit = new Person(name,address,city,state,zip,phoneNumber);
             Console.WriteLine("Enter the name of person");
             name = Console.ReadLine();
             foreach(Person person in personDetails)
@@ -78,14 +78,42 @@ namespace AddressBook
                     Console.WriteLine("Enter the phone number");
                     String phoneNumber = Console.ReadLine();
                     personEdit.SetPhoneNumber(phoneNumber);
+                    
             }
 
         }
-        public void DisplayAddressBook()
+
+        public Person DetectPerson()
         {
+            Console.WriteLine("entername of person ");
+            String name = Console.ReadLine();
             foreach (Person person in personDetails)
             {
-                Console.WriteLine(person);
+                if (person.GetName().Equals(name))
+                {
+                    return person;
+                }
+            }
+            return null;
+        }
+
+        public void DeletPerson()
+        {
+            Person personDelet = DetectPerson();
+            personDetails.Remove(personDelet);
+        }
+        
+
+        public void DisplayAddressBook()
+        {
+            foreach (Person person in personDetails) 
+            {
+                Console.WriteLine(person.GetName());
+                Console.WriteLine(person.GetPhoneNumber());
+                Console.WriteLine(person.GetState());
+                Console.WriteLine(person.GetCity());
+                Console.WriteLine(person.Getzip());
+                Console.WriteLine(person.GetAddress());
             }
             //for (int index=0; index < personDetails.Count; index++)
             //{
