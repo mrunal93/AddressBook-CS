@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO.Compression;
@@ -8,73 +9,133 @@ using System.Text;
 namespace AddressBook
 {
 
-   // interface IPerson
+    // interface IPerson
     //{
-      //  void addPerson();
+    //  void AddPerson();
     //}
 
     public class Person
     {
-        private string firstName, lastName, address, city, state, phoneNumber, zip;
-
-        public void addPerson()
+        string name, address, city, state, phoneNumber, zip;
+        ArrayList personDetails = new ArrayList() ;        
+        public Person(string name,string address, string city, string state, string zip, string phoneNumber)
         {
-            Person person = new Person();
-            Console.WriteLine("Enter the first name");
-            person.getSetFirstName = Console.ReadLine();
-            //Console.WriteLine(person.getSetFirstName);
-            Console.WriteLine("Enter the Laste Name");
-            person.getSetLastName = Console.ReadLine();
-            Console.WriteLine("Enter The Address:");
-            person.getsetaddress = Console.ReadLine();
-            Console.WriteLine("Enter the city name");
-            person.getSetCity = Console.ReadLine();
-            Console.WriteLine("Enter the State");
-            person.getSetState = Console.ReadLine();
-            Console.WriteLine("Enter the Phone Number");
-            person.getSetPhoneNo = Console.ReadLine();
-            Console.WriteLine("Enter the zip Code for the area");
-            person.getSetZip = Console.ReadLine();
-            
+            this.name = name;
+            this.address = address;
+            this.address = city;
+            this.state = state;
+            this.zip = zip;
+            this.phoneNumber = phoneNumber;
         }
 
+        public Person()
+        {
+        }
 
+        public void AddPerson()
+        {
+            Console.WriteLine("Enter the Name of person:");
+            String name = Console.ReadLine();
+            Console.WriteLine("Enter the address");
+            String address = Console.ReadLine();
+            Console.WriteLine("Enter the city");
+            String city = Console.ReadLine();
+            Console.WriteLine("Enter the state");
+            String state = Console.ReadLine();
+            Console.WriteLine("Enter the zip");
+            String zip = Console.ReadLine();
+            Console.WriteLine("Enter the phone number");
+            String phoneNumber = Console.ReadLine();
+            Person personAdd = new Person(name,address, city, state, zip, phoneNumber);
+            personDetails.Add(personAdd);
+        }
 
-        public string getSetFirstName
+      
+        
+        public void EditPerson()
         {
-            get { return firstName; }
-            set { firstName = value; }
-        }
-        public string getSetLastName
-        {
-            get { return lastName; }
-            set { lastName = value; }
-        }
-        public string getsetaddress
-        {
-            get { return address; }
-            set { address = value; }
-        }
-        public string getSetCity
-        {
-            get { return city; }
-            set { city = value; }
-        }
-        public string getSetState
-        {
-            get { return state; }
-            set { state = value; }
+            Person personEdit = new Person("","","","","","");
+            Console.WriteLine("Enter the name of person");
+            name = Console.ReadLine();
+            foreach(Person person in personDetails)
+            {
+                if (person.GetName().Equals(name))
+                {
+                    personEdit = person;
+                }
+                    Console.WriteLine("Enter the address");
+                    String address = Console.ReadLine();
+                    personEdit.SetAddress(address);
+                    Console.WriteLine("Enter the city");
+                    String city = Console.ReadLine();
+                    personEdit.SetCity(city);
+                    Console.WriteLine("Enter the state");
+                    String state = Console.ReadLine();
+                    personEdit.SetState(state);
+                    Console.WriteLine("Enter the zip");
+                    String zip = Console.ReadLine();
+                    personEdit.SetZip(zip);
+                    Console.WriteLine("Enter the phone number");
+                    String phoneNumber = Console.ReadLine();
+                    personEdit.SetPhoneNumber(phoneNumber);
+            }
 
         }
-        public string getSetPhoneNo
+        public void DisplayAddressBook()
         {
-            get { return phoneNumber; }
-            set { phoneNumber = value; }
+            foreach (Person person in persondetails)
+            {
+                Console.WriteLine(person);
+            }
+            //for (int index=0; index < personDetails.Count; index++)
+            //{
+            //    Person person = (Person)personDetails[index];
+            //}
         }
-        public string getSetZip
+        public string GetName()
         {
-            get { return zip; }
-            set { zip = value; }
+            return this.name;
+        }
+        public string GetAddress()
+        {
+            return this.address;
+        }
+        public void SetAddress(string address)
+        {
+            this.address = address;
+        }
+        public string GetState()
+        {
+            return this.state;
+        }
+        public void SetState(string state)
+        {
+            this.state = state;
+        }
+        public string GetCity()
+        {
+            return this.city;
+        }
+        public void SetCity(string city)
+        {
+            this.city = city;
+        }
+        public string Getzip()
+        {
+            return this.zip;
+        }
+        public void SetZip(string zip)
+        {
+            this.zip = zip;
+        }
+        public string GetPhoneNumber()
+        {
+            return this.phoneNumber;
+        }
+        public void SetPhoneNumber(string phoneNumber)
+        {
+            this.phoneNumber = phoneNumber;
         }
     }
 }
+
