@@ -45,7 +45,7 @@ namespace AddressBook
             String phoneNumber = Console.ReadLine();
             Person personAdd = new Person(name,address, city, state, zip, phoneNumber);
             personDetails.Add(personAdd);
-            }
+        }
 
       
         
@@ -124,6 +124,16 @@ namespace AddressBook
             //    Person person = (Person)personDetails[index];
             //}
         }
+
+        public void ShortPersion()
+        {
+            personDetails.Sort();
+            foreach(Person sort in personDetails)
+            {
+                Console.WriteLine(sort.GetName());
+            }
+        }
+
         public string GetName()
         {
             return this.name;
