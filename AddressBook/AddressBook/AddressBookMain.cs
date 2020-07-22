@@ -11,7 +11,7 @@ namespace AddressBook
         {
             int checkOut = 0;
             Console.WriteLine("Welcome To address Book");
-            Person person1 = new Person();
+            Person personTo = new Person();
             do
             {
                 Console.WriteLine("Enter Your choice 1: Add Person Details ");
@@ -23,23 +23,23 @@ namespace AddressBook
                 switch (choice)
                 {
                     case 1:
-                        person1.AddPerson();
-                        person1.DisplayAddressBook();
+                        personTo.AddPerson();
+                        personTo.DisplayAddressBook();
                         break;
                     case 2:
-                        person1.EditPerson();
-                        person1.DisplayAddressBook();
+                        personTo.EditPerson();
+                        personTo.DisplayAddressBook();
                         break;
                     case 3:
-                        person1.DeletPerson();
-                        person1.DisplayAddressBook();
+                        personTo.DeletPerson();
+                        personTo.DisplayAddressBook();
                         break;
                     default:
                         checkOut = 1;
                         break;
                 }
            } while(checkOut == 0) ;
-            person1.DisplayAddressBook();
+            personTo.DisplayAddressBook();
 
         }
     }
