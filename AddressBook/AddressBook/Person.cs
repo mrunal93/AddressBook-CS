@@ -83,7 +83,7 @@ namespace AddressBook
         }
         public void DisplayAddressBook()
         {
-            foreach (Person person in persondetails)
+            foreach (Person person in personDetails)
             {
                 Console.WriteLine(person);
             }
