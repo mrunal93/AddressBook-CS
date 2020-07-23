@@ -13,20 +13,10 @@ namespace AddressBook
         {
             int checkOut = 0;
             Console.WriteLine("Welcome To address Book");
-            Person personTo = new Person();
+            AddressBookUtility personTo = new AddressBookUtility();
             do
             {
-                Console.WriteLine("choice 1: Add Person Details ");
-                Console.WriteLine("choice 2: Editing Person Details ");
-                Console.WriteLine("choice 3: Delete  Person Details ");
-                Console.WriteLine("choice 4: Short Person By name");
-                Console.WriteLine("choice 5: Short Person By State");
-                Console.WriteLine("choice 6: Short Persion By City");
-                Console.WriteLine("choice 7: Short Persion By Zip");
-                Console.WriteLine("choice 8: View person by city");
-                Console.WriteLine("choice 9: view Person by state");
-                Console.WriteLine("choice 10: Exit From here");
-
+                Console.WriteLine("choice 1: Add Person Details \nchoice 2: Editing Person Details \nchoice 3: Delete  Person Details \nchoice 4: Short Person By name \nchoice 5: Short Person By State \nchoice 6: Short Persion By City \nchoice 7: Short Persion By Zip \nchoice 8: View person by city \nchoice 9: view Person by state \nchoice 10: Exit From here");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -39,7 +29,7 @@ namespace AddressBook
                         personTo.DisplayAddressBook();
                         break;
                     case 3:
-                        personTo.DeletPerson();
+                        personTo.DeletePerson();
                         personTo.DisplayAddressBook();
                         break;
                     case 4:
