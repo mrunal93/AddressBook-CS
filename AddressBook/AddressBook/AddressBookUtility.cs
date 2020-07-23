@@ -10,6 +10,7 @@ namespace AddressBook
     {
         string name, address, city, state, phoneNumber, zip;
         static ArrayList personDetails = new ArrayList();
+        Dictionary<string, Person> personName = new Dictionary<string, Person>();
         Dictionary<string, Person> personCity = new Dictionary<string, Person>();
         Dictionary<string, Person> personState = new Dictionary<string, Person>();
         Dictionary<string, Person> personZip = new Dictionary<string, Person>();
@@ -35,7 +36,7 @@ namespace AddressBook
                 Console.WriteLine("Person already in the List");
             }
             personDetails.Add(personAdd);
-            personDetails.Add(personAdd);
+            personName.Add(name,personAdd);
             personCity.Add(city, personAdd);
             personState.Add(state, personAdd);
             personZip.Add(zip, personAdd);
@@ -70,7 +71,17 @@ namespace AddressBook
 
             }   
         }
-   
+        
+        public void MultiPerson()
+        {
+            foreach (KeyValuePair<string, Person> sortCity in personCity.OrderBy(keyCity => keyCity.Key))
+            {
+
+                Console.WriteLine("name: {0}, Details: {1} ::: {2} ::: {3} ::: {4}", sortCity.Key, sortCity.Value.GetCity(), sortCity.Value.GetState(), sortCity.Value.Getzip(), sortCity.Value.GetPhoneNumber());
+            }
+
+        }
+
         public Person SearchPerson(string name)
         {
             foreach (Person person in personDetails)
